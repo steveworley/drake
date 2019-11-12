@@ -1,0 +1,25 @@
+#!/bin/sh
+
+#
+# "Drush" that delivers static output.
+#
+# Intended to be used a stub service that can be SSH'd to and
+# will deliver expect outupt.
+#
+
+BASE_DIR=${BASE_DIR:-/tmp}
+DIR=$1
+SUB_DIR=$2
+
+if [ ! -z "$2" ]; then
+  OP=$(awk '{for(i=1;i<=NF;i++)if($i~/from/)print $(i+1)}' <<< $2)
+  if [ ! -z "$OP" ]; then
+    DIR=$DIR/$OP
+  fi
+fi;
+
+if [ -d "$BASE_DIR/$DIR" ]; then
+  echo $(cat $BASE_DIR/$DIR/index.json)
+  exit 0
+fi
+
