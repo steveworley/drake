@@ -5,6 +5,6 @@ RUN \
   passwd -d root && \
   adduser -D -s /bin/ash drupal && \
   passwd -u drupal && \
-  chwon -R drupal:drupal /home/drupal
+  chown -R drupal:drupal /home/drupal
 
 COPY drush /usr/bin/drush
