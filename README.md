@@ -1,6 +1,6 @@
-# Fakedrush
+# Drake
 
-A lightweight SSH container that has `drush` available for remote command execution. Drush will return static json files based on the received command.
+Drake a Drush-Fake SSH container that is intended to be used for stubbing Drush commands for testing. Drush will return static json files based on the received command.
 
 Example:
 
