@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ ! -z $SSH_USER ];
+  adduser -D -s /bin/ash $SSH_USER
+  passwd -u $SSH_USER $SSH_USER
+  chown -R $SSH_USER:$SSH_USER /home/$SSH_USER
+fi;
